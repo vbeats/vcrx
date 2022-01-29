@@ -1,7 +1,7 @@
 {
   "name": "vcrx",
   "description": "vcrx",
-  "version": "1.0",
+  "version": "1.0.0",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js",
@@ -9,7 +9,8 @@
   },
   "permissions": [
     "storage",
-    "tabs"
+    "tabs",
+    "activeTab"
   ],
   "host_permissions": [
     "*://*/*"
@@ -42,5 +43,8 @@
         "content_script.js"
       ]
     }
-  ]
+  ],
+  "chrome_url_overrides": {
+    "newtab": "tab.html"
+  }
 }

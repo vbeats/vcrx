@@ -14,6 +14,23 @@ yarn build
 
 `chrome` 扩展加载 `dist`目录
 
+## 项目结构
+
+```bash
+
+  ├─ src
+  │   ├─ assets                 静态资源 css/图片
+  │   ├─ options                options页面
+  │   ├─ popup                  popup页面
+  │   ├─ router                 路由 vue-touter
+  │   └─ tab                    默认newtab页
+  │   └─ views                  页面
+  │   └─ background.js          service worker 可以调用大部分chrome api
+  │   └─ content_script.js      页面中注入的js 只能调用部分chrome api 对newtab页无效
+  │   └─ manifest.json          manifest声明
+
+```
+
 ## background.js
 
 后台进程 `service worker`  可以调用大部分`chrome api`

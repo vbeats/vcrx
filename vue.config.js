@@ -1,9 +1,9 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { resolve } = require('path')
+const {resolve} = require('path')
 
 const pages = {}
 
-const items = ['popup', 'options']
+const items = ['popup', 'options', 'tab']
 
 items.forEach((name) => {
   pages[name] = {
@@ -36,6 +36,6 @@ module.exports = {
   pages,
   productionSourceMap: false,
   configureWebpack: {
-    plugins: [new CopyWebpackPlugin({ patterns })],
+    plugins: [new CopyWebpackPlugin({patterns})],
   },
 }
