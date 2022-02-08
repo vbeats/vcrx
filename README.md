@@ -2,7 +2,7 @@
 
 ![Alt](https://repobeats.axiom.co/api/embed/970eae350bad087ace3e475d8697243bbf64eb3e.svg "Repobeats analytics image")
 
-> vue3 typescript
+> vue3 typescript tailwindcss
 
 ## run
 
