@@ -1,11 +1,10 @@
 import {createRouter, createWebHashHistory, Router, RouteRecordRaw} from 'vue-router'
-import Index from '../views/index/Index.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'index',
-    component: Index,
+    component: () => import(/* webpackChunkName: "index" */ '../views/index/Index.vue'),
   },
 ]
 const router: Router = createRouter({

@@ -1,15 +1,21 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const {resolve} = require('path')
+const path = require('path')
 
 const pages = {}
 
-const items = ['popup', 'options', 'tab']
+const items = [
+  {name: 'popup', title: 'Popup'},
+  {name: 'options', title: 'Options'},
+  {name: 'tab', title: 'Tab'},
+]
 
-items.forEach((name) => {
-  pages[name] = {
-    entry: `src/${name}/main.ts`,
+items.forEach((item) => {
+  pages[item.name] = {
+    entry: `src/${item.name}/main.ts`,
     template: 'public/index.html',
-    filename: `${name}.html`,
+    filename: `${item.name}.html`,
+    title: item.title,
   }
 })
 
@@ -37,5 +43,8 @@ module.exports = {
   productionSourceMap: false,
   configureWebpack: {
     plugins: [new CopyWebpackPlugin({patterns})],
+  },
+  chainWebpack: (config) => {
+    config.resolve.alias.set('@$', path.resolve(__dirname, 'src'))
   },
 }
