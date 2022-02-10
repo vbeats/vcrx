@@ -12,7 +12,9 @@ yarn install
 yarn build
 ```
 
-`chrome` 扩展加载 `dist`目录
+- 调试基础功能: `yarn serve` 后 访问 `http://localhost:8080/{page}.html`
+
+- 调试完整功能: `chrome` 扩展加载`build`构建后的 `dist`目录
 
 ## 项目结构
 
