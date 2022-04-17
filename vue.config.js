@@ -46,5 +46,25 @@ module.exports = {
   },
   chainWebpack: (config) => {
     config.resolve.alias.set('@$', path.resolve(__dirname, 'src'))
+
+    config.optimization.splitChunks({
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 128 * 1024,
+      maxSize: 500 * 1024,
+      automaticNameDelimiter: '-',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            const packageNames = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)
+            if (packageNames && packageNames.length > 1) {
+              return `chunk.${packageNames[1].replace('@', '')}`
+            }
+          },
+          priority: 10,
+        },
+      },
+    })
   },
 }
