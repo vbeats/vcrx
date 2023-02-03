@@ -1,0 +1,54 @@
+{
+  "name": "vcrx",
+  "description": "vcrx",
+  "version": "3.0.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "action": {
+    "default_title": "vcrx",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/assets/logo.png",
+      "32": "/assets/logo.png",
+      "48": "/assets/logo.png",
+      "128": "/assets/logo.png"
+    }
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "/assets/logo.png",
+    "32": "/assets/logo.png",
+    "48": "/assets/logo.png",
+    "128": "/assets/logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "css": [
+        "assets/index.css"
+      ],
+      "js": [
+        "content_script.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "chrome_url_overrides": {
+    "newtab": "tab.html"
+  }
+}
