@@ -1,7 +1,9 @@
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import copy from 'rollup-plugin-copy'
-import {resolve} from 'path'
+import {resolve, dirname} from 'path'
+import {fileURLToPath} from 'url'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
 const INVALID_CHAR_REGEX = /[\x00-\x1F\x7F<>*#"{}|^[\]`;?:&=+$,]/g;
 const DRIVE_LETTER_REGEX = /^[a-z]:/i;
@@ -14,6 +16,11 @@ export default defineConfig({
     },
     plugins: [
         vue(),
+        VueI18nPlugin({
+            /* options */
+            // locale messages resource pre-compile option
+            include: resolve(dirname(fileURLToPath(import.meta.url)), './src/locale/lang/**'),
+        }),
         copy({
             targets: [
                 {src: 'src/assets', dest: 'dist'},

@@ -13,10 +13,11 @@
     "@vueuse/core": "^10.3.0",
     "pinia": "^2.0.33",
     "vue": "^3.2.47",
-    "vue-i18n": "^9.2.2",
+    "vue-i18n": "^9.3.0-beta.25",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
+    "@intlify/unplugin-vue-i18n": "^0.12.2",
     "@types/chrome": "^0.0.243",
     "@types/node": "^20.4.8",
     "@vitejs/plugin-vue": "^4.1.0",
