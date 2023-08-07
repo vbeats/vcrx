@@ -3,7 +3,7 @@
 
   <br/>
 
-  <button @click="changeLang">{{ t('btTest') }} -- {{ locale }}</button>
+  <button @click="changeLang"><!--{{ t('btTest') }}--> -- {{ locale }}</button>
 </template>
 
 <script setup lang="ts">
