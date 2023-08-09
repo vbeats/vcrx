@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "vue-tsc && vite build && vite",
+    "dev": "vue-tsc && vite build --watch",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
